@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Library – CaseBridge</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="brand-name">CaseBridge</span>
+      </div>
+      <div class="header-user">
+        <span id="user-email" class="user-email"></span>
+        <button class="btn btn-outline btn-logout" id="logout-btn">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="library-hero">
+      <div class="container">
+        <h1>Case Library</h1>
+        <p class="lead">Wählen Sie aus unseren unterrichtsfertigen Case Studies für Ihren Unterricht.</p>
+      </div>
+    </section>
+
+    <section class="library-section">
+      <div class="container">
+        <div class="library-filters">
+          <div class="filter-group">
+            <select id="filter-topic" class="filter-select">
+              <option value="">Topic</option>
+              <option value="strategy">Strategy</option>
+              <option value="technology">Technology</option>
+              <option value="sustainability">Sustainability</option>
+              <option value="operations">Operations</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="filter-industry" class="filter-select">
+              <option value="">Industry</option>
+              <option value="automotive">Automotive</option>
+              <option value="technology">Technology</option>
+              <option value="telecommunications">Telecommunications</option>
+              <option value="finance">Finance</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="filter-skill" class="filter-select">
+              <option value="">Skill Focus</option>
+              <option value="analysis">Analysis</option>
+              <option value="strategy">Strategic Thinking</option>
+              <option value="problem-solving">Problem Solving</option>
+              <option value="innovation">Innovation</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="filter-difficulty" class="filter-select">
+              <option value="">Difficulty</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="filter-sort" class="filter-select">
+              <option value="newest">Sort by: Newest</option>
+              <option value="oldest">Sort by: Oldest</option>
+              <option value="duration-asc">Duration: Short to Long</option>
+              <option value="duration-desc">Duration: Long to Short</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="cases-grid" class="cases-grid">
+          <!-- Cases werden hier dynamisch eingefügt -->
+        </div>
+
+        <div id="no-results" class="no-results" style="display: none;">
+          <p>Keine Cases gefunden. Bitte passen Sie Ihre Filter an.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>CaseBridge</strong>
+        <p>Praxisnahe Bildung, schulkonform umgesetzt.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="#top">Nach oben</a>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 CaseBridge</span>
+        <span>Kontakt: hello@casebridge.de</span>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="library.js"></script>
+</body>
+</html>

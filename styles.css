@@ -513,3 +513,211 @@ a {
     align-items: flex-start;
   }
 }
+
+/* Case Library Styles */
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-email {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.btn-logout {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.library-hero {
+  background: linear-gradient(135deg, #2057d4 0%, #1747b5 100%);
+  color: white;
+  padding: 60px 0 50px;
+  text-align: center;
+}
+
+.library-hero h1 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin: 0 0 16px;
+}
+
+.library-hero .lead {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.library-section {
+  padding: 50px 0 80px;
+  background: var(--bg);
+}
+
+.library-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 150px;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 0.95rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-select:hover {
+  border-color: var(--primary);
+}
+
+.filter-select:focus {
+  outline: 2px solid rgba(32, 87, 212, 0.2);
+  border-color: var(--primary);
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.case-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(23, 33, 47, 0.04);
+}
+
+.case-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.case-company {
+  flex: 1;
+}
+
+.company-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.case-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.case-duration {
+  background: var(--accent);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.case-difficulty {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.difficulty-easy {
+  background: #e7f8f0;
+  color: #0a7a3b;
+}
+
+.difficulty-medium {
+  background: #fff4e6;
+  color: #c27c0e;
+}
+
+.difficulty-hard {
+  background: #fee;
+  color: #b42318;
+}
+
+.case-title {
+  font-size: 1.15rem;
+  margin: 0;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.case-description {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.btn-case {
+  margin-top: auto;
+  width: 100%;
+}
+
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+}
+
+.no-results p {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 800px) {
+  .header-user {
+    gap: 10px;
+  }
+  
+  .user-email {
+    display: none;
+  }
+  
+  .library-filters {
+    flex-direction: column;
+  }
+  
+  .filter-group {
+    min-width: 100%;
+  }
+  
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+}
