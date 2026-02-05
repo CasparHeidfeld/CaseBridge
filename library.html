@@ -12,10 +12,10 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">
+      <a href="library.html" class="brand">
         <span class="logo-dot" aria-hidden="true"></span>
         <span class="brand-name">CaseBridge</span>
-      </div>
+      </a>
       <div class="header-user">
         <span id="user-email" class="user-email"></span>
         <button class="btn btn-outline btn-logout" id="logout-btn">Logout</button>
@@ -35,46 +35,33 @@
       <div class="container">
         <div class="library-filters">
           <div class="filter-group">
-            <select id="filter-topic" class="filter-select">
-              <option value="">Topic</option>
-              <option value="strategy">Strategy</option>
-              <option value="technology">Technology</option>
-              <option value="sustainability">Sustainability</option>
-              <option value="operations">Operations</option>
+            <select id="filter-subject" class="filter-select">
+              <option value="">Schulfach</option>
+              <option value="Wirtschaft">Wirtschaft</option>
+              <option value="Politik">Politik</option>
+              <option value="Biologie">Biologie</option>
+              <option value="Informatik">Informatik</option>
             </select>
           </div>
           <div class="filter-group">
             <select id="filter-industry" class="filter-select">
-              <option value="">Industry</option>
-              <option value="automotive">Automotive</option>
-              <option value="technology">Technology</option>
-              <option value="telecommunications">Telecommunications</option>
-              <option value="finance">Finance</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <select id="filter-skill" class="filter-select">
-              <option value="">Skill Focus</option>
-              <option value="analysis">Analysis</option>
-              <option value="strategy">Strategic Thinking</option>
-              <option value="problem-solving">Problem Solving</option>
-              <option value="innovation">Innovation</option>
+              <option value="">Industrie</option>
+              <option value="Handel & Distribution">Handel & Distribution</option>
+              <option value="Maschinenbau">Maschinenbau</option>
+              <option value="Technologie & IT">Technologie & IT</option>
+              <option value="Automatisierungstechnik">Automatisierungstechnik</option>
+              <option value="Haushaltsgeräte">Haushaltsgeräte</option>
+              <option value="Elektrotechnik & Automation">Elektrotechnik & Automation</option>
+              <option value="Medizintechnik">Medizintechnik</option>
+              <option value="Reinigungstechnik">Reinigungstechnik</option>
             </select>
           </div>
           <div class="filter-group">
             <select id="filter-difficulty" class="filter-select">
-              <option value="">Difficulty</option>
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <select id="filter-sort" class="filter-select">
-              <option value="newest">Sort by: Newest</option>
-              <option value="oldest">Sort by: Oldest</option>
-              <option value="duration-asc">Duration: Short to Long</option>
-              <option value="duration-desc">Duration: Long to Short</option>
+              <option value="">Schwierigkeitsgrad</option>
+              <option value="easy">Leicht</option>
+              <option value="medium">Mittel</option>
+              <option value="hard">Schwer</option>
             </select>
           </div>
         </div>
@@ -108,8 +95,8 @@
                 <span class="overview-value" id="detail-subject"></span>
               </div>
               <div class="overview-item">
-                <span class="overview-label">Sozialform</span>
-                <span class="overview-value" id="detail-socialform"></span>
+                <span class="overview-label">Schulfach</span>
+                <span class="overview-value" id="detail-schoolsubject"></span>
               </div>
               <div class="overview-item">
                 <span class="overview-label">Benötigte Materialien</span>
@@ -142,6 +129,49 @@
             <a class="btn btn-outline" id="teacher-pdf" href="teacher-pdf.pdf" download>Lehrer-PDF herunterladen</a>
             <a class="btn btn-outline" id="certificate-pdf" href="certificate-pdf.pdf" download>Zertifikat-PDF herunterladen</a>
             <button class="btn btn-ghost" id="back-to-library">Zurück zur Case Library</button>
+          </div>
+
+          <div class="case-solution-section">
+            <h3>Schülerlösungen hochladen & auswerten</h3>
+            <p class="solution-description">Laden Sie die Arbeitsergebnisse Ihrer Schüler hoch und erhalten Sie eine KI-gestützte Auswertung mit Feedback und Bewertungsvorschlägen.</p>
+            
+            <div class="solution-upload-area" id="solution-upload-area">
+              <div class="upload-placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p><strong>Datei hierher ziehen</strong> oder klicken zum Auswählen</p>
+                <p class="upload-hint">Unterstützte Formate: PDF, PPTX, DOCX (max. 10 MB)</p>
+              </div>
+              <input type="file" id="solution-file-input" accept=".pdf,.pptx,.docx" style="display: none;">
+            </div>
+
+            <div class="solution-feedback" id="solution-feedback" style="display: none;">
+              <div class="feedback-header">
+                <h4>KI-Auswertung</h4>
+                <span class="feedback-score">8.5/10</span>
+              </div>
+              <div class="feedback-content">
+                <div class="feedback-section">
+                  <h5>Stärken der Schülerlösung</h5>
+                  <ul>
+                    <li>Klare Struktur und logischer Aufbau</li>
+                    <li>Gute Analyse der Ausgangssituation</li>
+                    <li>Kreative Lösungsansätze</li>
+                  </ul>
+                </div>
+                <div class="feedback-section">
+                  <h5>Verbesserungspotenzial</h5>
+                  <ul>
+                    <li>Mehr konkrete Beispiele einbauen</li>
+                    <li>Umsetzungsplan detaillierter ausarbeiten</li>
+                    <li>Stärkere Begründung der Entscheidungen</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

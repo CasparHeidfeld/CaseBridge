@@ -9,88 +9,89 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const allCases = [
   {
     id: 1,
-    company: "Porsche",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Porsche_Carrera_GT_Logo.svg/320px-Porsche_Carrera_GT_Logo.svg.png",
-    title: "Elektromobilität: Wachstum im EV-Markt",
-    description: "Strategien entwickeln, um Porsches Elektrofahrzeug-Segment zu erweitern.",
+    company: "Würth",
+    logo: "https://logo.clearbit.com/wuerth.com",
+    title: "Online-Shop für Handwerker",
+    description: "Wie kann Würth seinen Vertrieb digitaler machen und Handwerker online erreichen?",
     duration: 90,
     difficulty: "medium",
+    schoolSubject: "Wirtschaft",
     topic: "strategy",
-    industry: "automotive",
+    industry: "Handel & Distribution",
     skill: "strategy",
     date: new Date("2026-02-01"),
     objectives: [
-      "EV-Marktsegmente analysieren",
-      "Kundennutzen und Positionierung ableiten",
-      "Strategische Wachstumsoptionen bewerten"
+      "Verstehen, wie Unternehmen ihre Produkte online verkaufen",
+      "Herausfinden, was Kunden beim Online-Einkauf wichtig ist",
+      "Eine Strategie entwickeln, wie Online- und Offline-Verkauf zusammenpassen"
     ],
     lessonPlan: [
       "Briefing: Aufgabenstellung & Kontext (5 min)",
-      "Einstieg: Marktüberblick EV (10 min)",
-      "Gruppenarbeit: Wachstumstreiber identifizieren (25 min)",
-      "Ausarbeitung: Strategische Optionen (30 min)",
+      "Einstieg: B2B-Handel & Digitalisierung (10 min)",
+      "Gruppenarbeit: Customerjourney analysieren (25 min)",
+      "Ausarbeitung: Digitale Strategieoptionen (30 min)",
       "Präsentation & Diskussion (10 min)",
       "Nachbesprechung: Learnings & Transfer (10 min)"
     ],
-    context: `Die Elektromobilität ist der Zukunftsmarkt der Automobilindustrie. Porsche steht vor der Herausforderung, seine Marke und Kundenerwartung mit einer wachsenden EV-Produktpalette in Einklang zu bringen.
+    context: `Würth verkauft Schrauben, Werkzeuge und andere Produkte an Handwerker. Bisher kommen Verkäufer direkt zu den Kunden. Jetzt will Würth auch online mehr verkaufen.
 
-In diesem Case analysieren die Schüler den aktuellen E-Mobilitätsmarkt, identifizieren relevante Kundensegmente und entwickeln strategische Empfehlungen für das Wachstum von Porsches Elektrofahrzeugsparte.`,
+Ihr untersucht: Wie kaufen Handwerker am liebsten ein? Was muss ein guter Online-Shop können? Wie kombiniert man persönlichen Service mit digitalem Shopping?`,
     subject: "Klasse 11-13",
-    socialForm: "Gruppenarbeit (3-4 Personen)",
     materials: "Laptops, Präsentationsfolien",
     prepTime: "15 Minuten",
-    deliverable: "Die Schülergruppen präsentieren eine Strategieempfehlung mit Marktsegmentierung, Positionierung und konkreten Wachstumsmaßnahmen (5-7 Folien)."
+    deliverable: "Eine Präsentation (5-7 Folien) mit eurer Idee: Wie soll der Online-Shop aussehen und was bietet er den Handwerkern?"
   },
   {
     id: 2,
-    company: "SAP",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/320px-SAP_2011_logo.svg.png",
-    title: "SAP Markteinführungs-Strategie",
-    description: "Markteinführungsplan für ein neues SAP Cloud-Produkt entwickeln.",
+    company: "Trumpf",
+    logo: "https://logo.clearbit.com/trumpf.com",
+    title: "Smarte Fabrik der Zukunft",
+    description: "Wie können Maschinen bei Trumpf intelligent zusammenarbeiten und selbst Entscheidungen treffen?",
     duration: 90,
     difficulty: "hard",
-    topic: "strategy",
-    industry: "technology",
+    schoolSubject: "Informatik",
+    topic: "technology",
+    industry: "Maschinenbau",
     skill: "strategy",
     date: new Date("2026-01-28"),
     objectives: [
-      "Go-to-Market Modelle vergleichen",
-      "Zielgruppen und Value Proposition schärfen",
-      "Rollout-Plan strukturiert ableiten"
+      "Verstehen, wie vernetzte Maschinen die Produktion verbessern",
+      "Herausfinden, welche Daten wichtig sind und wie sie genutzt werden",
+      "Einen Plan erstellen, wie die Fabrik Schritt für Schritt smart wird"
     ],
     lessonPlan: [
       "Briefing: Aufgabenstellung & Kontext (5 min)",
-      "Einstieg: Produkt & Markt (10 min)",
-      "Analyse: Zielgruppen & Nutzen (25 min)",
-      "Planung: Kanäle & Rollout (30 min)",
-      "Präsentation der Strategien (10 min)",
+      "Einstieg: Smart Factory Grundlagen (10 min)",
+      "Analyse: Produktionsprozesse & Potenziale (25 min)",
+      "Planung: Digitalisierungsroadmap (30 min)",
+      "Präsentation der Konzepte (10 min)",
       "Nachbesprechung: Reflexion & Learnings (10 min)"
     ],
-    context: `SAP entwickelt kontinuierlich neue Cloud-Lösungen für verschiedene Unternehmensbereiche. Die Herausforderung: Wie bringt man ein neues Produkt erfolgreich auf den Markt?
+    context: `Trumpf baut Maschinen, die Metall schneiden und formen. In einer "Smart Factory" sind alle Maschinen vernetzt und können miteinander kommunizieren - wie Smartphones, die Daten austauschen.
 
-Die Schüler entwickeln eine Go-to-Market-Strategie für ein fiktives SAP Cloud-Produkt. Sie definieren Zielgruppen, erarbeiten das Nutzenversprechen und planen den Rollout über geeignete Kanäle.`,
+Ihr entwickelt Ideen: Welche Maschinen sollen Daten austauschen? Was wird dadurch besser? Wie startet man so ein Projekt?`,
     subject: "Klasse 12-13",
-    socialForm: "Gruppenarbeit (4 Personen)",
     materials: "Laptops, Case-Material, Flipchart",
     prepTime: "10 Minuten",
-    deliverable: "Ein Go-to-Market-Plan mit Zielgruppendefinition, Value Proposition, Kanalstrategie und Rollout-Phasen (Präsentation oder schriftlich)."
+    deliverable: "Ein Konzept für die smarte Fabrik: Welche Technologien werden genutzt und wie wird die Produktion dadurch besser?"
   },
   {
     id: 3,
     company: "IONOS",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/IONOS_logo.svg/320px-IONOS_logo.svg.png",
-    title: "Cloud-Infrastruktur Kostenoptimierung",
-    description: "Kosteneffizienz der Cloud-Infrastruktur von IONOS analysieren und verbessern.",
+    logo: "https://logo.clearbit.com/ionos.com",
+    title: "Cloud-Kosten senken",
+    description: "Wo gibt IONOS zu viel Geld für seine Cloud-Server aus und wie kann man das ändern?",
     duration: 60,
     difficulty: "easy",
+    schoolSubject: "Informatik",
     topic: "operations",
-    industry: "technology",
+    industry: "Technologie & IT",
     skill: "analysis",
     date: new Date("2026-01-25"),
     objectives: [
-      "Kostenstrukturen im Cloudbetrieb verstehen",
-      "Optimierungshebel identifizieren",
-      "Maßnahmen priorisieren"
+      "Verstehen, wofür ein Cloud-Anbieter Geld ausgibt",
+      "Die größten Kostentreiber finden",
+      "Konkrete Spar-Ideen entwickeln"
     ],
     lessonPlan: [
       "Briefing: Aufgabenstellung & Kontext (5 min)",
@@ -99,98 +100,98 @@ Die Schüler entwickeln eine Go-to-Market-Strategie für ein fiktives SAP Cloud-
       "Lösung: Maßnahmenkatalog (20 min)",
       "Nachbesprechung: Quick Wins & Learnings (5 min)"
     ],
-    context: `Cloud-Infrastruktur bietet Flexibilität – verursacht aber oft unerwartete Kosten. IONOS möchte seine Cloud-Kosteneffizienz steigern.
+    context: `IONOS betreibt tausende Server in der Cloud - das kostet viel Strom und Geld. Manchmal laufen Server, die gar nicht gebraucht werden, oder es wird mehr Leistung eingekauft als nötig.
 
-Die Schüler analysieren die Kostenstruktur einer Cloud-Infrastruktur, identifizieren Einsparpotenziale und entwickeln einen priorisierten Maßnahmenkatalog zur Kostenoptimierung.`,
+Ihr analysiert: Wo entstehen die höchsten Kosten? Welche Server können ausgeschaltet werden? Wie spart man am meisten?`,
     subject: "Klasse 10-12",
-    socialForm: "Partnerarbeit",
     materials: "Laptops, Tabellenkalkulationssoftware",
     prepTime: "10 Minuten",
-    deliverable: "Eine Kostenanalyse mit Top-3-Maßnahmen zur Optimierung, inkl. erwarteter Einsparungen (Excel oder Präsentation)."
+    deliverable: "Eine Liste mit den 3 besten Spar-Ideen und wie viel Geld damit gespart werden kann (Excel oder Präsentation)."
   },
   {
     id: 4,
-    company: "Deutsche Telekom",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telekom_Logo_2013.svg/320px-Telekom_Logo_2013.svg.png",
-    title: "5G-Technologie-Strategie für Telekom",
-    description: "Erarbeiten, wie Telekom seine 5G-Infrastruktur ausbauen und nutzen kann.",
+    company: "Festo",
+    logo: "https://logo.clearbit.com/festo.com",
+    title: "Umweltfreundliche Maschinen",
+    description: "Wie kann Festo seine Automatisierungssysteme energiesparender und nachhaltiger machen?",
     duration: 60,
     difficulty: "medium",
-    topic: "technology",
-    industry: "telecommunications",
+    schoolSubject: "Biologie",
+    topic: "sustainability",
+    industry: "Automatisierungstechnik",
     skill: "innovation",
     date: new Date("2026-01-20"),
     objectives: [
-      "5G-Anwendungsfälle strukturieren",
-      "Wertschöpfungspotenziale bewerten",
-      "Strategische Partnerschaften skizzieren"
+      "Verstehen, wo Maschinen in Fabriken viel Energie verbrauchen",
+      "Ideen entwickeln, wie man Energie sparen kann",
+      "Überlegen, warum Kunden umweltfreundliche Lösungen kaufen würden"
     ],
     lessonPlan: [
       "Briefing: Aufgabenstellung & Kontext (5 min)",
-      "Einstieg: 5G Ökosystem (10 min)",
-      "Gruppenarbeit: Use Cases entwickeln (20 min)",
-      "Bewertung: Nutzen & Aufwand (20 min)",
+      "Einstieg: Automatisierung & Nachhaltigkeit (10 min)",
+      "Gruppenarbeit: Effizienzpotenziale analysieren (20 min)",
+      "Bewertung: Lösungsansätze & Kundennutzen (20 min)",
       "Nachbesprechung: Umsetzung & Learnings (5 min)"
     ],
-    context: `5G ist mehr als nur schnelleres Internet – es ermöglicht neue Geschäftsmodelle in Industrie, Mobilität und Smart Cities. Die Deutsche Telekom investiert massiv in den 5G-Ausbau.
+    context: `Festo baut Systeme, die Maschinen in Fabriken automatisch steuern - z.B. mit Druckluft. Das verbraucht viel Energie. Gleichzeitig wollen immer mehr Kunden umweltfreundliche Lösungen.
 
-Die Schüler entwickeln konkrete Anwendungsfälle für 5G-Technologie, bewerten deren Potenzial und skizzieren strategische Partnerschaften zur Umsetzung.`,
+Ihr untersucht: Wo wird am meisten Energie verschwendet? Welche neuen Technologien könnten helfen? Was macht eine "grüne" Lösung attraktiv für Kunden?`,
     subject: "Klasse 11-13",
-    socialForm: "Gruppenarbeit (3-4 Personen)",
     materials: "Laptops, Präsentationsfolien",
     prepTime: "10 Minuten",
-    deliverable: "Präsentation von 2-3 Use Cases mit Nutzenbewertung, Aufwand und Partner-Strategie (5 Folien)."
+    deliverable: "Eine Präsentation (5 Folien): Eure Idee für umweltfreundlichere Maschinen und warum Kunden sie kaufen würden."
   },
   {
     id: 5,
-    company: "Mercedes-Benz",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/320px-Mercedes-Logo.svg.png",
-    title: "Nachhaltige Produktion bei Mercedes-Benz",
-    description: "Nachhaltigkeitsstrategien für Mercedes-Benz Produktionsstätten entwickeln.",
+    company: "Miele",
+    logo: "https://logo.clearbit.com/miele.de",
+    title: "Warum Miele teurer ist - und sein darf",
+    description: "Wie bleibt Miele erfolgreich, obwohl die Waschmaschinen viel teurer sind als bei anderen Marken?",
     duration: 90,
     difficulty: "medium",
-    topic: "sustainability",
-    industry: "automotive",
+    schoolSubject: "Wirtschaft",
+    topic: "strategy",
+    industry: "Haushaltsgeräte",
     skill: "problem-solving",
     date: new Date("2026-01-15"),
     objectives: [
-      "Nachhaltigkeitsziele einordnen",
-      "CO₂-Hebel im Werk erkennen",
-      "Umsetzungsroadmap skizzieren"
+      "Verstehen, warum manche Marken mehr kosten als andere",
+      "Herausfinden, was Miele besonders macht",
+      "Ideen entwickeln, wie Miele seine Stärken zeigen kann"
     ],
     lessonPlan: [
       "Briefing: Aufgabenstellung & Kontext (5 min)",
-      "Einstieg: Produktion & Emissionen (10 min)",
-      "Analyse: Hotspots identifizieren (25 min)",
-      "Maßnahmen: Roadmap erstellen (30 min)",
+      "Einstieg: Premiummarken & Wettbewerb (10 min)",
+      "Analyse: Markenkern & Differenzierung (25 min)",
+      "Maßnahmen: Strategieempfehlungen (30 min)",
       "Kurzpräsentationen (10 min)",
       "Nachbesprechung: Reflexion & Transfer (10 min)"
     ],
-    context: `Mercedes-Benz hat sich ehrgeizige Klimaziele gesetzt und will bis 2039 CO₂-neutral produzieren. Doch wie setzt man das in bestehenden Werken um?
+    context: `Miele verkauft Waschmaschinen und andere Haushaltsgeräte - aber viel teurer als die Konkurrenz. Das Motto: "Immer besser". Doch heute gibt es viele günstige Alternativen.
 
-Die Schüler analysieren Emissionsquellen in der Automobilproduktion, identifizieren CO₂-Einsparpotenziale und entwickeln eine Roadmap für nachhaltige Fertigung.`,
+Ihr analysiert: Was macht Miele wirklich besser? Warum kaufen Menschen trotzdem die teureren Geräte? Wie kann Miele zeigen, dass sich der höhere Preis lohnt?`,
     subject: "Klasse 11-13",
-    socialForm: "Gruppenarbeit (4 Personen)",
     materials: "Laptops, Case-Materialien, Flipchart",
     prepTime: "15 Minuten",
-    deliverable: "Eine Roadmap zur CO₂-Reduktion mit konkreten Maßnahmen, Zeitplan und erwarteter Wirkung (Poster oder Präsentation)."
+    deliverable: "Ein Poster oder eine Präsentation: Was macht Miele besonders und wie sollte das Unternehmen das besser zeigen?"
   },
   {
     id: 6,
     company: "Siemens",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Siemens-logo.svg/320px-Siemens-logo.svg.png",
-    title: "Digitale Transformation im Industrial IoT",
-    description: "Chancen für Siemens im Industrial Internet of Things analysieren.",
+    logo: "https://logo.clearbit.com/siemens.com",
+    title: "Vernetzte Fabriken",
+    description: "Wie kann Siemens mit dem Internet der Dinge Fabriken intelligenter machen?",
     duration: 90,
     difficulty: "hard",
+    schoolSubject: "Informatik",
     topic: "technology",
-    industry: "technology",
+    industry: "Elektrotechnik & Automation",
     skill: "analysis",
     date: new Date("2026-01-10"),
     objectives: [
-      "IoT-Potenziale in der Industrie bewerten",
-      "Daten- und Plattformstrategie verstehen",
-      "Implementierungsrisiken benennen"
+      "Verstehen, wie Maschinen und Geräte über das Internet kommunizieren",
+      "Herausfinden, welche Daten gesammelt werden und was man damit machen kann",
+      "Probleme erkennen, die beim Vernetzen auftreten können"
     ],
     lessonPlan: [
       "Briefing: Aufgabenstellung & Kontext (5 min)",
@@ -200,81 +201,80 @@ Die Schüler analysieren Emissionsquellen in der Automobilproduktion, identifizi
       "Präsentation der Strategien (10 min)",
       "Nachbesprechung: Risiken & Learnings (10 min)"
     ],
-    context: `Das Industrial Internet of Things (IIoT) vernetzt Maschinen, Anlagen und Prozesse – und schafft neue Möglichkeiten für Effizienz und Wertschöpfung. Siemens ist Vorreiter in dieser Transformation.
+    context: `Stellt euch vor, alle Maschinen in einer Fabrik sind mit dem Internet verbunden und können Daten senden - wie viele Teile sie produziert haben, ob sie bald kaputt gehen, etc. Siemens will solche Systeme bauen.
 
-Die Schüler bewerten IoT-Anwendungsfälle in der Industrie, skizzieren eine Daten- und Plattformstrategie und identifizieren Risiken bei der Implementierung.`,
+Ihr überlegt: Was kann man mit diesen Daten Nützliches machen? Wie baut man so ein System? Was kann dabei schiefgehen?`,
     subject: "Klasse 12-13",
-    socialForm: "Gruppenarbeit (4 Personen)",
     materials: "Laptops, Case-Material",
     prepTime: "15 Minuten",
-    deliverable: "Ein IIoT-Strategiekonzept mit Use Cases, Plattformarchitektur und Risikobewertung (Präsentation)."
+    deliverable: "Eine Präsentation: Konkrete Beispiele, was vernetzte Maschinen können, wie das System funktioniert und welche Risiken es gibt."
   },
   {
     id: 7,
-    company: "Allianz",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Allianz_logo.svg/320px-Allianz_logo.svg.png",
-    title: "InsurTech Innovations-Strategie",
-    description: "Innovationsstrategie für digitale Versicherungsprodukte der Allianz entwickeln.",
+    company: "Ottobock",
+    logo: "https://logo.clearbit.com/ottobock.com",
+    title: "Smarte Prothesen",
+    description: "Wie kann Ottobock Prothesen mit digitaler Technik verbessern und den Trägern helfen?",
     duration: 60,
     difficulty: "medium",
-    topic: "strategy",
-    industry: "finance",
+    schoolSubject: "Biologie",
+    topic: "technology",
+    industry: "Medizintechnik",
     skill: "innovation",
     date: new Date("2026-01-05"),
     objectives: [
-      "InsurTech Trends strukturieren",
-      "Innovationsfelder priorisieren",
-      "Go-to-Market Optionen bewerten"
+      "Verstehen, wie digitale Technik in der Medizin helfen kann",
+      "Ideen für smarte Prothesen entwickeln",
+      "Überlegen, was den Menschen mit Prothesen wirklich hilft"
     ],
     lessonPlan: [
       "Briefing: Aufgabenstellung & Kontext (5 min)",
-      "Einstieg: Markt & Trends (10 min)",
-      "Analyse: Zielgruppen definieren (15 min)",
-      "Ideation: Produktideen entwickeln (20 min)",
+      "Einstieg: Medizintechnik & Digitalisierung (10 min)",
+      "Analyse: Anwendungsfälle & Bedürfnisse (15 min)",
+      "Ideation: Digitale Lösungskonzepte (20 min)",
       "Pitch-Präsentationen & Feedback (10 min)"
     ],
-    context: `Die Versicherungsbranche wird durch digitale Technologien grundlegend verändert. Allianz investiert in InsurTech-Innovationen, um wettbewerbsfähig zu bleiben.
+    context: `Ottobock baut künstliche Gliedmaßen (Prothesen) für Menschen, die z.B. nach einem Unfall einen Arm oder ein Bein verloren haben. Moderne Prothesen können mit Sensoren und Apps ausgestattet werden.
 
-Die Schüler analysieren InsurTech-Trends, entwickeln Ideen für digitale Versicherungsprodukte und bewerten verschiedene Markteintrittswege.`,
+Ihr entwickelt Ideen: Welche digitalen Features würden helfen? Wie könnte eine App die Prothese steuern? Was würde das Leben der Menschen verbessern?`,
     subject: "Klasse 11-13",
-    socialForm: "Gruppenarbeit (3-4 Personen)",
     materials: "Laptops, Präsentationsfolien",
     prepTime: "10 Minuten",
-    deliverable: "Ein Innovationskonzept für ein digitales Versicherungsprodukt mit Zielgruppe, Nutzen und Go-to-Market (Pitch-Präsentation)."
+    deliverable: "Eine kurze Pitch-Präsentation: Eure Idee für eine smarte Prothese und wie sie Menschen im Alltag hilft."
   },
   {
     id: 8,
-    company: "BMW",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/320px-BMW.svg.png",
-    title: "Markteintritt Autonomes Fahren",
-    description: "Strategie für BMWs Eintritt in den Markt für autonome Fahrzeuge entwickeln.",
+    company: "Kärcher",
+    logo: "https://logo.clearbit.com/kaercher.com",
+    title: "Kärcher erobert neue Länder",
+    description: "In welche Länder sollte Kärcher expandieren und was muss dabei beachtet werden?",
     duration: 90,
     difficulty: "hard",
+    schoolSubject: "Politik",
     topic: "strategy",
-    industry: "automotive",
+    industry: "Reinigungstechnik",
     skill: "strategy",
     date: new Date("2025-12-28"),
     objectives: [
-      "Markt für autonomes Fahren bewerten",
-      "Regulatorik und Risiken einordnen",
-      "Markteintrittsstrategie ableiten"
+      "Verschiedene Länder und Märkte vergleichen und bewerten",
+      "Verstehen, wie Unternehmen in neue Länder gehen können",
+      "Herausfinden, was in verschiedenen Kulturen anders gemacht werden muss"
     ],
     lessonPlan: [
       "Briefing: Aufgabenstellung & Kontext (5 min)",
-      "Einstieg: Markt & Regulatorik (15 min)",
-      "Analyse: Wettbewerber & Trends (25 min)",
-      "Strategie: Eintrittsoptionen entwickeln (25 min)",
+      "Einstieg: Internationalisierung & Marktanalyse (15 min)",
+      "Analyse: Zielmärkte & Wettbewerb (25 min)",
+      "Strategie: Markteintritt & Lokalisierung (25 min)",
       "Präsentation der Strategien (10 min)",
       "Nachbesprechung: Risiken & Learnings (10 min)"
     ],
-    context: `Autonomes Fahren ist eine der größten technologischen Revolutionen der Automobilbranche. BMW muss entscheiden, wie und wann das Unternehmen in diesen Markt einsteigt.
+    context: `Kärcher kennt jeder - gelbe Hochdruckreiniger für Auto und Terrasse. Die Firma ist sehr erfolgreich in Deutschland, will aber in neue Länder expandieren - z.B. in Asien oder Südamerika.
 
-Die Schüler bewerten den Markt für autonome Fahrzeuge, analysieren Wettbewerber und Regulierung und entwickeln eine Markteintrittsstrategie für BMW.`,
+Ihr analysiert: Welches Land ist am vielversprechendsten? Wie unterscheiden sich die Märkte? Was muss Kärcher anders machen (Werbung, Produkte, Preise)?`,
     subject: "Klasse 12-13",
-    socialForm: "Gruppenarbeit (4 Personen)",
     materials: "Laptops, Case-Material, Flipchart",
     prepTime: "15 Minuten",
-    deliverable: "Eine Markteintrittsstrategie mit Marktanalyse, Wettbewerbspositionierung und Risikobewertung (Präsentation)."
+    deliverable: "Eine Präsentation: Empfehlung für ein Zielland mit Begründung und Strategie, wie Kärcher dort starten sollte."
   }
 ];
 
@@ -370,7 +370,7 @@ const showCaseDetail = (caseItem) => {
   contextEl.innerHTML = caseItem.context.split('\n\n').map(p => `<p>${p}</p>`).join('');
 
   document.getElementById("detail-subject").textContent = caseItem.subject;
-  document.getElementById("detail-socialform").textContent = caseItem.socialForm;
+  document.getElementById("detail-schoolsubject").textContent = caseItem.schoolSubject;
   document.getElementById("detail-materials").textContent = caseItem.materials;
   document.getElementById("detail-preptime").textContent = caseItem.prepTime;
 
@@ -396,35 +396,16 @@ const showLibrary = () => {
 
 // Filter anwenden
 const applyFilters = () => {
-  const topicFilter = document.getElementById("filter-topic").value;
+  const subjectFilter = document.getElementById("filter-subject").value;
   const industryFilter = document.getElementById("filter-industry").value;
-  const skillFilter = document.getElementById("filter-skill").value;
   const difficultyFilter = document.getElementById("filter-difficulty").value;
-  const sortFilter = document.getElementById("filter-sort").value;
   
   filteredCases = allCases.filter(caseItem => {
-    if (topicFilter && caseItem.topic !== topicFilter) return false;
+    if (subjectFilter && caseItem.schoolSubject !== subjectFilter) return false;
     if (industryFilter && caseItem.industry !== industryFilter) return false;
-    if (skillFilter && caseItem.skill !== skillFilter) return false;
     if (difficultyFilter && caseItem.difficulty !== difficultyFilter) return false;
     return true;
   });
-  
-  // Sortierung anwenden
-  switch (sortFilter) {
-    case "newest":
-      filteredCases.sort((a, b) => b.date - a.date);
-      break;
-    case "oldest":
-      filteredCases.sort((a, b) => a.date - b.date);
-      break;
-    case "duration-asc":
-      filteredCases.sort((a, b) => a.duration - b.duration);
-      break;
-    case "duration-desc":
-      filteredCases.sort((a, b) => b.duration - a.duration);
-      break;
-  }
   
   renderCases();
 };
@@ -432,11 +413,9 @@ const applyFilters = () => {
 // Event Listeners für Filter
 const initFilters = () => {
   const filters = [
-    "filter-topic",
+    "filter-subject",
     "filter-industry",
-    "filter-skill",
-    "filter-difficulty",
-    "filter-sort"
+    "filter-difficulty"
   ];
   
   filters.forEach(filterId => {
@@ -469,6 +448,75 @@ const initCaseClick = () => {
   }
 };
 
+// Solution Upload Funktionalität (Platzhalter)
+const initSolutionUpload = () => {
+  const uploadArea = document.getElementById("solution-upload-area");
+  const fileInput = document.getElementById("solution-file-input");
+  const feedbackSection = document.getElementById("solution-feedback");
+
+  if (!uploadArea || !fileInput) return;
+
+  // Click auf Upload Area
+  uploadArea.addEventListener("click", () => {
+    fileInput.click();
+  });
+
+  // Drag & Drop
+  uploadArea.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    uploadArea.style.borderColor = "var(--primary)";
+    uploadArea.style.background = "var(--accent)";
+  });
+
+  uploadArea.addEventListener("dragleave", () => {
+    uploadArea.style.borderColor = "";
+    uploadArea.style.background = "";
+  });
+
+  uploadArea.addEventListener("drop", (e) => {
+    e.preventDefault();
+    uploadArea.style.borderColor = "";
+    uploadArea.style.background = "";
+    
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      handleFileUpload(files[0]);
+    }
+  });
+
+  // File Input Change
+  fileInput.addEventListener("change", (e) => {
+    if (e.target.files.length > 0) {
+      handleFileUpload(e.target.files[0]);
+    }
+  });
+
+  // Platzhalter für Upload-Handling
+  const handleFileUpload = (file) => {
+    console.log("Datei hochgeladen:", file.name);
+    
+    // Simuliere Upload und zeige Feedback (Platzhalter)
+    uploadArea.innerHTML = `
+      <div class="upload-success">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <p><strong>${file.name}</strong> erfolgreich hochgeladen</p>
+        <p class="upload-hint">KI analysiert eure Lösung...</p>
+      </div>
+    `;
+
+    // Zeige Feedback nach 2 Sekunden (Platzhalter)
+    setTimeout(() => {
+      if (feedbackSection) {
+        feedbackSection.style.display = "block";
+        feedbackSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }, 2000);
+  };
+};
+
 // Logout Button
 const logoutBtn = document.getElementById("logout-btn");
 if (logoutBtn) {
@@ -482,6 +530,7 @@ const init = async () => {
     displayUserEmail(session);
     initFilters();
     initCaseClick();
+    initSolutionUpload();
     renderCases();
   }
 };
