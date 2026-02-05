@@ -83,6 +83,68 @@
           <!-- Cases werden hier dynamisch eingefügt -->
         </div>
 
+        <section id="case-detail" class="case-detail" style="display: none;">
+          <div class="case-detail-header">
+            <div>
+              <p class="case-detail-company" id="detail-company"></p>
+              <h2 id="detail-title"></h2>
+              <p class="case-detail-description" id="detail-description"></p>
+            </div>
+            <div class="case-detail-meta">
+              <span class="case-duration" id="detail-duration"></span>
+              <span class="case-difficulty" id="detail-difficulty"></span>
+            </div>
+          </div>
+
+          <div class="case-detail-context">
+            <div id="detail-context"></div>
+          </div>
+
+          <div class="case-detail-overview">
+            <h3>Auf einen Blick</h3>
+            <div class="overview-grid">
+              <div class="overview-item">
+                <span class="overview-label">Klassenstufe</span>
+                <span class="overview-value" id="detail-subject"></span>
+              </div>
+              <div class="overview-item">
+                <span class="overview-label">Sozialform</span>
+                <span class="overview-value" id="detail-socialform"></span>
+              </div>
+              <div class="overview-item">
+                <span class="overview-label">Benötigte Materialien</span>
+                <span class="overview-value" id="detail-materials"></span>
+              </div>
+              <div class="overview-item">
+                <span class="overview-label">Vorbereitungszeit</span>
+                <span class="overview-value" id="detail-preptime"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-detail-grid">
+            <div class="case-detail-card">
+              <h3>Lernziele</h3>
+              <ul id="detail-objectives"></ul>
+            </div>
+            <div class="case-detail-card">
+              <h3>Unterrichtsablauf (80–90 min)</h3>
+              <ol id="detail-lesson"></ol>
+            </div>
+            <div class="case-detail-card">
+              <h3>Ergebnis / Deliverable</h3>
+              <p id="detail-deliverable"></p>
+            </div>
+          </div>
+
+          <div class="case-detail-actions">
+            <a class="btn btn-primary" id="student-pdf" href="student-pdf.pdf" download>Schüler-PDF herunterladen</a>
+            <a class="btn btn-outline" id="teacher-pdf" href="teacher-pdf.pdf" download>Lehrer-PDF herunterladen</a>
+            <a class="btn btn-outline" id="certificate-pdf" href="certificate-pdf.pdf" download>Zertifikat-PDF herunterladen</a>
+            <button class="btn btn-ghost" id="back-to-library">Zurück zur Case Library</button>
+          </div>
+        </section>
+
         <div id="no-results" class="no-results" style="display: none;">
           <p>Keine Cases gefunden. Bitte passen Sie Ihre Filter an.</p>
         </div>

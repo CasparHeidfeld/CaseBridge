@@ -43,11 +43,11 @@ const handleLogin = async (event) => {
     }
     
     // Sofortige Weiterleitung
+    console.log("Redirecting to library.html");
     window.location.href = "./library.html";
   } else {
     setStatus("Fehler: Keine Session erhalten", "error");
   }
-};
 };
 
 const handleSignup = async (event) => {
