@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Schueler-Portal – CaseBridge</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="brand-name">CaseBridge</span>
+      </a>
+      <a class="btn btn-outline" href="index.html#library">Zurueck zur Startseite</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="portal-hero">
+      <div class="container">
+        <p class="eyebrow">Schuelerzugang</p>
+        <h1>Case herunterladen und einreichen</h1>
+        <p class="lead">Starte mit Klassen-Code und deinem Namen.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container student-layout">
+        <div class="student-join-bar" id="join-panel">
+          <form class="student-form student-form-inline" id="join-form">
+            <label>
+              <span>Klassen-Code</span>
+              <input id="class-code-input" type="text" inputmode="numeric" placeholder="123456" maxlength="6" required />
+            </label>
+            <label>
+              <span>Name</span>
+              <input id="student-name-input" type="text" placeholder="Vorname Nachname" required />
+            </label>
+            <button class="btn btn-primary" type="submit">Beitreten</button>
+            <p class="login-status" id="join-status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="student-card student-workspace" id="student-workspace" style="display: none;">
+          <h2 id="case-title">Case</h2>
+          <p class="small" id="case-meta"></p>
+          <div class="student-actions student-workspace-actions">
+            <a class="btn btn-primary" id="student-download" href="student-pdf.pdf" download>Case herunterladen</a>
+            <button class="btn btn-outline" id="leave-session" type="button">Abmelden</button>
+          </div>
+
+          <div class="upload-area" id="student-upload-area">
+            <p><strong>Datei hierher ziehen</strong> oder klicken zum Auswaehlen</p>
+            <p class="upload-hint">Unterstuetzte Formate: PDF, PPTX, DOCX (max. 10 MB)</p>
+            <input type="file" id="student-file-input" accept=".pdf,.pptx,.docx" style="display: none;" />
+          </div>
+          <p class="small" id="upload-status" aria-live="polite"></p>
+
+          <h3>Meine Abgaben</h3>
+          <div class="submission-list" id="student-submissions"></div>
+          <p class="small" id="student-submissions-empty">Noch keine Abgabe. Nach dem Upload erscheint sie hier.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>CaseBridge</strong>
+        <p>Praxisnahe Bildung, schulkonform umgesetzt.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Startseite</a>
+        <a href="#top">Nach oben</a>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 CaseBridge</span>
+        <span>Kontakt: hello@casebridge.de</span>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="student.js"></script>
+</body>
+</html>

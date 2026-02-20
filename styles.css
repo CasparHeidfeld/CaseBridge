@@ -822,8 +822,8 @@ a {
   gap: 12px;
 }
 
-/* Solution Upload Section */
-.case-solution-section {
+/* Teacher submissions */
+.case-submission-section {
   margin: 30px 0;
   padding: 24px;
   background: var(--surface-alt);
@@ -831,112 +831,234 @@ a {
   border-radius: 16px;
 }
 
-.case-solution-section h3 {
-  margin: 0 0 8px;
-  color: var(--text);
+.submission-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.submission-header h3 {
+  margin: 0 0 6px;
   font-size: 1.3rem;
 }
 
-.solution-description {
+.submission-description {
+  margin: 0;
   color: var(--muted);
-  margin: 0 0 20px;
   font-size: 0.95rem;
+  max-width: 620px;
 }
 
-.solution-upload-area {
+.submission-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.submission-code-card,
+.submission-list-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.code-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.class-code {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+}
+
+.btn-small {
+  padding: 8px 14px;
+  font-size: 0.85rem;
+}
+
+.submission-list-card {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.submission-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.submission-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.submission-empty {
+  margin: 0;
+  color: var(--muted);
+}
+
+.submission-table {
+  display: grid;
+  gap: 8px;
+}
+
+.submission-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 0.6fr 0.8fr;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-alt);
+  font-size: 0.92rem;
+  align-items: center;
+}
+
+.submission-head {
+  background: transparent;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.submission-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* Student portal */
+.portal-hero {
+  padding: 60px 0 40px;
+  text-align: center;
+}
+
+.portal-hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+}
+
+.portal-hero .lead {
+  margin: 0;
+}
+
+.student-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.student-join-bar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
+}
+
+.student-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.student-card h2,
+.student-card h3 {
+  margin-top: 0;
+}
+
+.student-form {
+  display: grid;
+  gap: 14px;
+}
+
+.student-form-inline {
+  grid-template-columns: minmax(160px, 1fr) minmax(220px, 1.2fr) auto;
+  align-items: end;
+}
+
+.student-form-inline .login-status {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.student-form input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+.student-form input:focus {
+  outline: 2px solid rgba(32, 87, 212, 0.2);
+  border-color: var(--primary);
+}
+
+.student-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.student-workspace-actions {
+  margin-bottom: 16px;
+}
+
+.upload-area {
   border: 2px dashed var(--border);
   border-radius: 12px;
-  padding: 40px 20px;
+  padding: 30px 20px;
   text-align: center;
-  background: var(--surface);
+  background: var(--surface-alt);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 6px;
 }
 
-.solution-upload-area:hover {
+.upload-area:hover {
   border-color: var(--primary);
   background: var(--accent);
 }
 
-.upload-placeholder svg {
-  color: var(--primary);
-  margin-bottom: 16px;
-}
-
-.upload-success {
-  color: var(--text);
-}
-
-.upload-success svg {
-  color: #0a7a3b;
-  margin-bottom: 16px;
-}
-
-.upload-placeholder p {
-  margin: 8px 0;
-  color: var(--text);
-}
-
-.upload-placeholder strong {
-  color: var(--primary);
-}
-
-.upload-hint {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.solution-feedback {
-  margin-top: 20px;
-  padding: 20px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
-.feedback-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-
-.feedback-header h4 {
-  margin: 0;
-  color: var(--text);
-  font-size: 1.1rem;
-}
-
-.feedback-score {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary);
-  background: var(--accent);
-  padding: 8px 16px;
-  border-radius: 8px;
-}
-
-.feedback-content {
+.submission-list {
   display: grid;
-  gap: 16px;
+  gap: 10px;
 }
 
-.feedback-section h5 {
-  margin: 0 0 8px;
-  color: var(--text);
-  font-size: 1rem;
+.submission-item {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.9fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-alt);
+  font-size: 0.9rem;
 }
 
-.feedback-section ul {
-  margin: 0;
-  padding-left: 20px;
-  color: var(--text);
-}
-
-.feedback-section li {
-  margin: 6px 0;
+.submission-item button {
+  padding: 6px 10px;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 800px) {
@@ -957,6 +1079,18 @@ a {
   }
   
   .cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .submission-row {
+    grid-template-columns: 1fr;
+  }
+
+  .submission-item {
+    grid-template-columns: 1fr;
+  }
+
+  .student-form-inline {
     grid-template-columns: 1fr;
   }
 }

@@ -131,45 +131,44 @@
             <button class="btn btn-ghost" id="back-to-library">Zurück zur Case Library</button>
           </div>
 
-          <div class="case-solution-section">
-            <h3>Schülerlösungen hochladen & auswerten</h3>
-            <p class="solution-description">Laden Sie die Arbeitsergebnisse Ihrer Schüler hoch und erhalten Sie eine KI-gestützte Auswertung mit Feedback und Bewertungsvorschlägen.</p>
-            
-            <div class="solution-upload-area" id="solution-upload-area">
-              <div class="upload-placeholder">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="17 8 12 3 7 8"></polyline>
-                  <line x1="12" y1="3" x2="12" y2="15"></line>
-                </svg>
-                <p><strong>Datei hierher ziehen</strong> oder klicken zum Auswählen</p>
-                <p class="upload-hint">Unterstützte Formate: PDF, PPTX, DOCX (max. 10 MB)</p>
+          <div class="case-submission-section">
+            <div class="submission-header">
+              <div>
+                <h3>Schuelerzugang & Submissions</h3>
+                <p class="submission-description">Erzeugen Sie einen Klassen-Code. Schueler geben Code und Namen im Schueler-Portal ein, laden den Case herunter und reichen ihre Loesung ein.</p>
               </div>
-              <input type="file" id="solution-file-input" accept=".pdf,.pptx,.docx" style="display: none;">
+              <div class="submission-actions">
+                <button class="btn btn-primary" id="generate-code-btn" type="button">Klassen-Code erzeugen</button>
+                <button class="btn btn-outline" id="refresh-submissions" type="button">Aktualisieren</button>
+              </div>
             </div>
 
-            <div class="solution-feedback" id="solution-feedback" style="display: none;">
-              <div class="feedback-header">
-                <h4>KI-Auswertung</h4>
-                <span class="feedback-score">8.5/10</span>
+            <div class="submission-code-card">
+              <div>
+                <span class="overview-label">Klassen-Code</span>
+                <div class="code-row">
+                  <span class="class-code" id="class-code">—</span>
+                  <button class="btn btn-outline btn-small" id="copy-code" type="button">Code kopieren</button>
+                </div>
+                <p class="small">Schueler melden sich mit Code und Namen an. Der Code gilt pro Case.</p>
               </div>
-              <div class="feedback-content">
-                <div class="feedback-section">
-                  <h5>Stärken der Schülerlösung</h5>
-                  <ul>
-                    <li>Klare Struktur und logischer Aufbau</li>
-                    <li>Gute Analyse der Ausgangssituation</li>
-                    <li>Kreative Lösungsansätze</li>
-                  </ul>
+              <a class="btn btn-ghost" id="student-portal-link" href="schueler.html" target="_blank" rel="noopener">Schueler-Portal im neuen Fenster</a>
+            </div>
+
+            <div class="submission-list-card">
+              <div class="submission-list-header">
+                <h4>Submissions</h4>
+                <span class="submission-count" id="submission-count">0 Einreichungen</span>
+              </div>
+              <p class="submission-empty" id="submission-empty">Noch keine Einreichungen. Sobald Schueler abgeben, erscheint hier die Liste mit KI-Bewertung.</p>
+              <div class="submission-table" id="submission-table" style="display: none;">
+                <div class="submission-row submission-head">
+                  <span>Name</span>
+                  <span>Abgabe</span>
+                  <span>Score</span>
+                  <span>Status</span>
                 </div>
-                <div class="feedback-section">
-                  <h5>Verbesserungspotenzial</h5>
-                  <ul>
-                    <li>Mehr konkrete Beispiele einbauen</li>
-                    <li>Umsetzungsplan detaillierter ausarbeiten</li>
-                    <li>Stärkere Begründung der Entscheidungen</li>
-                  </ul>
-                </div>
+                <div id="submission-rows"></div>
               </div>
             </div>
           </div>

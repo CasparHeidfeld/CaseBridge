@@ -5,6 +5,25 @@ const SUPABASE_ANON_KEY = "sb_publishable_qVf29l_oGYTn56V9hxzfsw__CtoSmt1";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+const STORAGE_CODES = "cb_case_codes";
+const STORAGE_SUBMISSIONS = "cb_submissions";
+const STORAGE_CASE_CODE_MAP = "cb_case_code_map";
+
+const readJson = (key, fallback) => {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return fallback;
+    return JSON.parse(raw);
+  } catch (error) {
+    console.warn("Storage parse failed:", error);
+    return fallback;
+  }
+};
+
+const writeJson = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
 // Beispieldaten für Cases
 const allCases = [
   {
@@ -279,6 +298,7 @@ Ihr analysiert: Welches Land ist am vielversprechendsten? Wie unterscheiden sich
 ];
 
 let filteredCases = [...allCases];
+let activeCaseItem = null;
 
 // Auth-Check: Nicht eingeloggte Nutzer zur Login-Seite umleiten
 const checkAuth = async () => {
@@ -381,6 +401,9 @@ const showCaseDetail = (caseItem) => {
   lessonEl.innerHTML = caseItem.lessonPlan.map(item => `<li>${item}</li>`).join("");
 
   document.getElementById("detail-deliverable").textContent = caseItem.deliverable;
+
+  activeCaseItem = caseItem;
+  updateSubmissionDashboard();
 };
 
 const showLibrary = () => {
@@ -392,6 +415,139 @@ const showLibrary = () => {
   if (grid) grid.style.display = "grid";
   if (filters) filters.style.display = "flex";
   if (hero) hero.style.display = "block";
+  activeCaseItem = null;
+};
+
+const getCaseCodeMap = () => readJson(STORAGE_CASE_CODE_MAP, {});
+
+const setCaseCode = (caseId, code) => {
+  const map = getCaseCodeMap();
+  map[caseId] = code;
+  writeJson(STORAGE_CASE_CODE_MAP, map);
+};
+
+const getCaseCode = (caseId) => {
+  const map = getCaseCodeMap();
+  return map[caseId] || null;
+};
+
+const generateClassCode = () => {
+  let code = "";
+  const existing = readJson(STORAGE_CODES, {});
+  while (!code || existing[code]) {
+    code = Math.floor(100000 + Math.random() * 900000).toString();
+  }
+  return code;
+};
+
+const registerCodeEntry = (code, caseItem) => {
+  const codes = readJson(STORAGE_CODES, {});
+  codes[code] = {
+    caseId: caseItem.id,
+    caseTitle: caseItem.title,
+    caseCompany: caseItem.company,
+    createdAt: Date.now(),
+    studentPdf: "student-pdf.pdf"
+  };
+  writeJson(STORAGE_CODES, codes);
+};
+
+const updateSubmissionDashboard = () => {
+  if (!activeCaseItem) return;
+
+  const codeEl = document.getElementById("class-code");
+  const studentLink = document.getElementById("student-portal-link");
+  const submissionCount = document.getElementById("submission-count");
+  const submissionEmpty = document.getElementById("submission-empty");
+  const submissionTable = document.getElementById("submission-table");
+  const submissionRows = document.getElementById("submission-rows");
+
+  const code = getCaseCode(activeCaseItem.id);
+  if (codeEl) codeEl.textContent = code || "—";
+  if (studentLink) {
+    const url = code ? `schueler.html?code=${code}&caseId=${activeCaseItem.id}` : "schueler.html";
+    studentLink.href = url;
+  }
+
+  if (code) {
+    const codes = readJson(STORAGE_CODES, {});
+    if (!codes[code]) {
+      registerCodeEntry(code, activeCaseItem);
+    }
+  }
+
+  const submissions = readJson(STORAGE_SUBMISSIONS, []);
+  const filtered = code
+    ? submissions.filter((item) => item.caseId === activeCaseItem.id && item.code === code)
+    : [];
+
+  filtered.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return b.submittedAt - a.submittedAt;
+  });
+
+  if (submissionCount) {
+    const label = filtered.length === 1 ? "Einreichung" : "Einreichungen";
+    submissionCount.textContent = `${filtered.length} ${label}`;
+  }
+
+  if (!submissionRows || !submissionEmpty || !submissionTable) return;
+  submissionRows.innerHTML = "";
+
+  if (filtered.length === 0) {
+    submissionEmpty.style.display = "block";
+    submissionTable.style.display = "none";
+    return;
+  }
+
+  submissionEmpty.style.display = "none";
+  submissionTable.style.display = "grid";
+
+  filtered.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "submission-row";
+    const bestBadge = index === 0 ? " <span class=\"submission-badge\">Best</span>" : "";
+    row.innerHTML = `
+      <span>${item.studentName}${bestBadge}</span>
+      <span>${new Date(item.submittedAt).toLocaleString("de-DE")}</span>
+      <span class="submission-badge">${item.score}/10</span>
+      <span>KI bewertet</span>
+    `;
+    submissionRows.appendChild(row);
+  });
+};
+
+const initSubmissionControls = () => {
+  const generateBtn = document.getElementById("generate-code-btn");
+  const refreshBtn = document.getElementById("refresh-submissions");
+  const copyBtn = document.getElementById("copy-code");
+
+  if (generateBtn) {
+    generateBtn.addEventListener("click", () => {
+      if (!activeCaseItem) return;
+      const code = generateClassCode();
+      setCaseCode(activeCaseItem.id, code);
+      registerCodeEntry(code, activeCaseItem);
+      updateSubmissionDashboard();
+    });
+  }
+
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", () => {
+      updateSubmissionDashboard();
+    });
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      if (!activeCaseItem) return;
+      const code = getCaseCode(activeCaseItem.id);
+      if (!code) return;
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(code);
+      }
+    });
+  }
 };
 
 // Filter anwenden
@@ -448,74 +604,6 @@ const initCaseClick = () => {
   }
 };
 
-// Solution Upload Funktionalität (Platzhalter)
-const initSolutionUpload = () => {
-  const uploadArea = document.getElementById("solution-upload-area");
-  const fileInput = document.getElementById("solution-file-input");
-  const feedbackSection = document.getElementById("solution-feedback");
-
-  if (!uploadArea || !fileInput) return;
-
-  // Click auf Upload Area
-  uploadArea.addEventListener("click", () => {
-    fileInput.click();
-  });
-
-  // Drag & Drop
-  uploadArea.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    uploadArea.style.borderColor = "var(--primary)";
-    uploadArea.style.background = "var(--accent)";
-  });
-
-  uploadArea.addEventListener("dragleave", () => {
-    uploadArea.style.borderColor = "";
-    uploadArea.style.background = "";
-  });
-
-  uploadArea.addEventListener("drop", (e) => {
-    e.preventDefault();
-    uploadArea.style.borderColor = "";
-    uploadArea.style.background = "";
-    
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-      handleFileUpload(files[0]);
-    }
-  });
-
-  // File Input Change
-  fileInput.addEventListener("change", (e) => {
-    if (e.target.files.length > 0) {
-      handleFileUpload(e.target.files[0]);
-    }
-  });
-
-  // Platzhalter für Upload-Handling
-  const handleFileUpload = (file) => {
-    console.log("Datei hochgeladen:", file.name);
-    
-    // Simuliere Upload und zeige Feedback (Platzhalter)
-    uploadArea.innerHTML = `
-      <div class="upload-success">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-          <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-        <p><strong>${file.name}</strong> erfolgreich hochgeladen</p>
-        <p class="upload-hint">KI analysiert eure Lösung...</p>
-      </div>
-    `;
-
-    // Zeige Feedback nach 2 Sekunden (Platzhalter)
-    setTimeout(() => {
-      if (feedbackSection) {
-        feedbackSection.style.display = "block";
-        feedbackSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }
-    }, 2000);
-  };
-};
 
 // Logout Button
 const logoutBtn = document.getElementById("logout-btn");
@@ -530,7 +618,7 @@ const init = async () => {
     displayUserEmail(session);
     initFilters();
     initCaseClick();
-    initSolutionUpload();
+    initSubmissionControls();
     renderCases();
   }
 };
