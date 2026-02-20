@@ -504,16 +504,38 @@ const updateSubmissionDashboard = () => {
   submissionTable.style.display = "grid";
 
   filtered.forEach((item, index) => {
-    const row = document.createElement("div");
-    row.className = "submission-row";
     const bestBadge = index === 0 ? " <span class=\"submission-badge\">Best</span>" : "";
-    row.innerHTML = `
-      <span>${item.studentName}${bestBadge}</span>
-      <span>${new Date(item.submittedAt).toLocaleString("de-DE")}</span>
-      <span class="submission-badge">${item.score}/10</span>
-      <span>KI bewertet</span>
+    const details = document.createElement("details");
+    details.className = "submission-details";
+    details.innerHTML = `
+      <summary class="submission-row">
+        <span>${item.studentName}${bestBadge}</span>
+        <span>${new Date(item.submittedAt).toLocaleString("de-DE")}</span>
+        <span class="submission-badge">${item.score}/10</span>
+        <span>KI bewertet</span>
+        <span class="dropdown-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="submission-feedback-grid">
+        <div class="feedback-group">
+          <span class="feedback-tag feedback-tag-strong">Stark</span>
+          <ul>
+            <li>Die Struktur fuehrt klar durch Problem, Analyse und Ergebnis.</li>
+            <li>Die Annahmen werden nachvollziehbar hergeleitet und belegt.</li>
+            <li>Die Argumente sind konsistent und bauen logisch aufeinander auf.</li>
+            <li>Die Loesung zeigt einen realistischen und umsetzbaren Ansatz.</li>
+            <li>Die Kernaussagen sind praezise und gut zusammengefasst.</li>
+          </ul>
+        </div>
+        <div class="feedback-group">
+          <span class="feedback-tag feedback-tag-weak">Verbesserung</span>
+          <ul>
+            <li>Konkrete Beispiele wuerden die Empfehlungen greifbarer machen.</li>
+            <li>Der Umsetzungsplan sollte mit klaren Schritten ergaenzt werden.</li>
+          </ul>
+        </div>
+      </div>
     `;
-    submissionRows.appendChild(row);
+    submissionRows.appendChild(details);
   });
 };
 
