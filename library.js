@@ -61,6 +61,40 @@ Ihr untersucht: Wie kaufen Handwerker am liebsten ein? Was muss ein guter Online
     deliverable: "Eine Präsentation (5-7 Folien) mit eurer Idee: Wie soll der Online-Shop aussehen und was bietet er den Handwerkern?"
   },
   {
+    id: 9,
+    company: "Rudolfstädter Systembau",
+    logo: "",
+    title: "Mathe trifft Produktion: Kapazitäten planen",
+    description: "Wie plant RSB Produktionsmengen und Kapazitäten so, dass Termine gehalten und Ressourcen effizient genutzt werden?",
+    duration: 90,
+    difficulty: "medium",
+    schoolSubject: "Mathematik",
+    topic: "operations",
+    industry: "Maschinenbau",
+    skill: "analysis",
+    date: new Date("2026-02-20"),
+    objectives: [
+      "Mathematische Modelle auf eine reale Unternehmensfrage anwenden",
+      "Kapazitäten, Zeiten und Mengen strukturiert berechnen und vergleichen",
+      "Eine begründete Entscheidung mit Zahlen transparent herleiten"
+    ],
+    lessonPlan: [
+      "Briefing: Aufgabenstellung & Unternehmenskontext (10 min)",
+      "Einstieg: Rechenwege und Annahmen klären (10 min)",
+      "Gruppenarbeit: Daten auswerten und Szenarien berechnen (35 min)",
+      "Ausarbeitung: Empfehlung mit Begründung erstellen (20 min)",
+      "Präsentation, Vergleich und Reflexion (15 min)"
+    ],
+    context: `RSB Rudolstädter Systembau GmbH entwickelt und fertigt technische Systemlösungen. In der Planung stellt sich die Frage, wie Produktionsmengen, Bearbeitungszeiten und verfügbare Kapazitäten sinnvoll aufeinander abgestimmt werden.
+
+Ihr analysiert die bereitgestellten Zahlen und entwickelt eine mathematisch fundierte Empfehlung, wie RSB die Planung für einen 90-Minuten-Unterrichtsfall optimieren kann.`,
+    subject: "Klasse 10-12",
+    materials: "Taschenrechner, Arbeitsblatt/Case-PDF, optional Tabellenkalkulation",
+    prepTime: "10 Minuten",
+    deliverable: "Eine kurze Ergebnispräsentation mit Rechenweg, Annahmen und finaler Handlungsempfehlung für RSB.",
+    studentPdf: "pdf/RSB_Case_Final.pdf"
+  },
+  {
     id: 2,
     company: "Trumpf",
     logo: "https://logo.clearbit.com/trumpf.com",
@@ -401,6 +435,10 @@ const showCaseDetail = (caseItem) => {
   lessonEl.innerHTML = caseItem.lessonPlan.map(item => `<li>${item}</li>`).join("");
 
   document.getElementById("detail-deliverable").textContent = caseItem.deliverable;
+  const studentPdfLink = document.getElementById("student-pdf");
+  if (studentPdfLink) {
+    studentPdfLink.href = caseItem.studentPdf || "student-pdf.pdf";
+  }
 
   activeCaseItem = caseItem;
   updateSubmissionDashboard();
@@ -447,7 +485,7 @@ const registerCodeEntry = (code, caseItem) => {
     caseTitle: caseItem.title,
     caseCompany: caseItem.company,
     createdAt: Date.now(),
-    studentPdf: "student-pdf.pdf"
+    studentPdf: caseItem.studentPdf || "student-pdf.pdf"
   };
   writeJson(STORAGE_CODES, codes);
 };

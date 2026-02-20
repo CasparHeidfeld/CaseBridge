@@ -51,7 +51,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 0;
   gap: 16px;
 }
 
@@ -68,6 +68,12 @@ a {
 
 .brand:hover {
   opacity: 0.8;
+}
+
+.brand-logo {
+  height: 100px;
+  width: auto;
+  display: block;
 }
 
 .logo-dot {
@@ -292,6 +298,11 @@ a {
   padding: 8px 16px;
   background: var(--accent);
   border-radius: 999px;
+}
+
+.bridge-logo {
+  height: 28px;
+  width: auto;
 }
 
 @media (max-width: 800px) {
